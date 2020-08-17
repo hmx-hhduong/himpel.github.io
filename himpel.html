@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>HIMPEL INVITATION </h1>
+<p>Click link to accept invitation</p>
+
+<p>
+<script>
+  function getValue( name, url ) {
+      if (!url) url = location.href;
+      name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+      var regexS = "[\\?&]"+name+"=([^&#]*)";
+      var regex = new RegExp( regexS );
+      var results = regex.exec( url );
+      return results == null ? null : results[1];
+ }
+ var currentURL = window.location.href;
+ var token = 'himpel://jwt/' + getValue('token', currentURL);
+ document.write('<a href="' + token + '">Accept Invitation</a>');
+</script>
+</p>
+ 
+</body>
+</html>
