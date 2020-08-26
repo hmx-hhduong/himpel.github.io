@@ -1,25 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<body>
+    <body>
+        <title>Himpel</title>
+        <style>
+            body {
+                text-align: center;
+                text-decoration: none;
+            }
 
-<h1>HIMPEL INVITATION </h1>
-<p>Click link to accept invitation</p>
+            body {
+                font: 20px Helvetica, sans-serif;
+                color: #333;
+                background-color: rgb(246, 246, 249);
+            }
 
-<p>
-<script>
-  function getValue( name, url ) {
-      if (!url) url = location.href;
-      name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-      var regexS = "[\\?&]"+name+"=([^&#]*)";
-      var regex = new RegExp( regexS );
-      var results = regex.exec( url );
-      return results == null ? null : results[1];
- }
- var currentURL = window.location.href;
- var token = 'himpel://jwt/' + getValue('token', currentURL);
- document.write('<a href="' + token + '">Accept Invitation</a>');
-</script>
-</p>
- 
-</body>
+            article {
+                display: block;
+                text-align: left;
+                width: 650px;
+                margin: 0 auto;
+            }
+
+            .himpel {
+                align-items: center;
+                margin-top: 300px;
+                align-content: center;
+                width: 100%;
+            }
+
+            .desc {
+                text-align: center;
+                margin-top: 50px;
+                font-size: 200%;
+                margin-left: 100px;
+                margin-right: 100px;
+            }
+
+            .button {
+                background-color: rgb(78, 84, 112);
+                margin-left: 80px;
+                margin-right: 80px;
+                height: 170px;
+                border-radius: 20px;
+                font-weight: 500;
+                font-size: 300%;
+                justify-content: center;
+                align-items: center;
+                line-height: 170px;
+            }
+
+            .buttonText {
+                color: white;
+                margin-top: 250px;
+            }
+
+            .bottomText {
+                text-align: center;
+                font-size: 200%;
+                margin-left: 75px;
+                margin-right: 75px;
+                opacity: 0.7;
+                bottom: 200pt;
+            }
+        </style>
+
+        <article>
+            <div class="mainCenter">
+                <div style="align-content: center; align-items: center;">
+                    <img class="himpel"
+                    src="https://cdn.zeplin.io/5ddb8fc545c13d8b77a4890e/assets/AE34BD59-3C38-4907-B543-FD81DFB47C16.png"
+                    crossorigin="anonymous">
+                </div>
+                <div class="desc">아래 버튼을 선택하시면/n초대가 승인됩니다.</div>
+                <div class="button desc">
+                    <h5 class="buttonText"><a style="color: white;" id="press" href="">초대 승인</a></h5>
+                </div>
+                <div class="bottomText">
+                    <h5>초대 승인을 위해 힘펠 앱설치가 필요하며,메뉴 내 초대 항목에서 확인 가능합니다.</h5>
+                </div>
+            </div>
+        </article>
+
+        <script>
+            function getValue( name, url ) {
+                if (!url) url = location.href;
+                name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+                var regexS = "[\\?&]"+name+"=([^&#]*)";
+                var regex = new RegExp( regexS );
+                var results = regex.exec( url );
+                return results == null ? null : results[1];
+        }
+        var currentURL = window.location.href;
+        var token = 'himpel://jwt/' + getValue("token", currentURL);
+        document.getElementById("press").href=token; 
+        </script>
+    </body>
 </html>
