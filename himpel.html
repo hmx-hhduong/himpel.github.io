@@ -96,7 +96,7 @@
         button.onclick = function() {
             var currentURL = window.location.href;
             var token = 'himpel://jwt/' + getValue("token", currentURL);
-            window.open(token)
+            window.location.replace(token)
         };
         
         </script>
