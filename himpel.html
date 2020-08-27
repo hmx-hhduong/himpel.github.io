@@ -73,7 +73,7 @@
                     crossorigin="anonymous">
                 </div>
                 <div class="desc">아래 버튼을 선택하시면 초대가 승인됩니다.</div>
-                <div class="button desc">
+                <div id="click" class="button desc">
                     <h5><a style="color: white; text-decoration: none;" id="press" href="">초대 승인</a></h5>
                 </div>
                 <div class="bottomText">
@@ -91,9 +91,14 @@
                 var results = regex.exec( url );
                 return results == null ? null : results[1];
         }
-        var currentURL = window.location.href;
-        var token = 'himpel://jwt/' + getValue("token", currentURL);
-        document.getElementById("press").href=token; 
+        var button = document.getElementById('click');
+        button.style.cursor = 'pointer';
+        button.onclick = function() {
+            var currentURL = window.location.href;
+            var token = 'himpel://jwt/' + getValue("token", currentURL);
+            window.open(token)
+        };
+        
         </script>
     </body>
 </html>
