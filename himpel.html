@@ -96,12 +96,15 @@
         }
         var button = document.getElementById('click');
         button.style.cursor = 'pointer';
+        
         button.onclick = function() {
             var currentURL = window.location.href;
             var token = 'himpel://jwt/' + getValue("token", currentURL);
             window.location.replace(token)
         };
-        
+        var currentURL = window.location.href;
+        var token = 'himpel://jwt/' + getValue("token", currentURL);
+        document.getElementById("press").href=token; 
         </script>
     </body>
 </html>
